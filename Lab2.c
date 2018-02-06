@@ -32,10 +32,10 @@ uint8_t Find_Mean(uint8_t Readings[],uint32_t N){
 // Replace ths following line with your solution
   int total;
 	int i;
-	for(i = 0; i < N; i++){
+	for(i = 0; i < N; i++){			// for each value in Readings array, add to the sum varuable total
 		total += Readings[i];
 	}
-	return(total/N);
+	return(total/N);						// then output the total divided by the number of array components, giving averate temp in F
 }
 
 // Return the computed Range
@@ -47,14 +47,14 @@ uint8_t Find_Range(uint8_t Readings[],uint32_t N){
 	rangeLow = Readings[0];
 	for(i = 0; i < N; i++){
 		val = Readings[i];
-		if(val >= rangeHigh){
+		if(val >= rangeHigh){			// if this is the largest number so far, save as rangeHigh
 			rangeHigh = val;
 		}
-		if(val <= rangeLow){
+		if(val <= rangeLow){			// if this is the smallest, save as rangeLow
 			rangeLow = val;
 		}
 	}
-  return(rangeHigh - rangeLow);
+  return(rangeHigh - rangeLow); // return the difference of the two
 }
 
 // Return True of False based on whether the readings
@@ -67,12 +67,12 @@ uint8_t IsMonotonic(uint8_t Readings[],uint32_t N){
 	status = True;
 	for(i = 0; i < (N - 1); i++){
 		val = Readings[i];
-		if(Readings[i] < Readings[i+1]){
-			status = False;
+		if(Readings[i] < Readings[i+1]){		// if the series is ever decreasing, then
+			status = False;										//     then set status to false
 		}
 	}
 	
-  return(status);
+  return(status);												// and return status
 }
 
 
