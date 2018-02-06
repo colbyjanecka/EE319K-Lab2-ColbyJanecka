@@ -30,12 +30,12 @@
 // N is the length of the array
 uint8_t Find_Mean(uint8_t Readings[],uint32_t N){
 // Replace ths following line with your solution
-  int total;
+  int16_t total;
 	int i;
-	for(i = 0; i < N; i++){			// for each value in Readings array, add to the sum varuable total
+	for(i = 0; i < N; i++){				// for each value in Readings array, add to the sum varuable total
 		total += Readings[i];
 	}
-	return(total/N);						// then output the total divided by the number of array components, giving averate temp in F
+	return(total/N);							// then output the total divided by the number of array components, giving averate temp in F
 }
 
 // Return the computed Range
@@ -44,13 +44,14 @@ uint8_t Find_Mean(uint8_t Readings[],uint32_t N){
 uint8_t Find_Range(uint8_t Readings[],uint32_t N){
 // Replace ths following line with your solution
 	int i,rangeHigh,rangeLow,val;
+	rangeHigh = Readings[0];
 	rangeLow = Readings[0];
 	for(i = 0; i < N; i++){
 		val = Readings[i];
-		if(val >= rangeHigh){			// if this is the largest number so far, save as rangeHigh
+		if(val >= rangeHigh){				// if this is the largest number so far, save as rangeHigh
 			rangeHigh = val;
 		}
-		if(val <= rangeLow){			// if this is the smallest, save as rangeLow
+		if(val <= rangeLow){				// if this is the smallest, save as rangeLow
 			rangeLow = val;
 		}
 	}
